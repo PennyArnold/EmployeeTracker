@@ -28,7 +28,7 @@
         </div>
         <div class="row">
             <div class="col-12">
-                    <table class="table">
+                    <table class="table" id="empTable">
                             <thead>
                               <tr>
                                 <th scope="col">Employee Name</th>
@@ -39,9 +39,10 @@
                                 <th scope="col">Total Billed ($)</th>
                               </tr>
                             </thead>
-                            <tbody>
-                             
+                            <tbody id="empRow">
+
                             </tbody>
+                        
                     </table>
             </div>
         </div>
@@ -76,15 +77,12 @@
                                         <button type="submit" class="btn btn-primary" id="submitBtn">Submit</button>
                                       </form>
                         </div>
-                   </div>
+                </div>
         </div>
+      
     </div>
     <script src="https://www.gstatic.com/firebasejs/5.8.1/firebase.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript" src="app.js"></script>
 </body>
 </html>
-
-
-
-Collapse 

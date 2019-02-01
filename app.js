@@ -20,20 +20,30 @@ var config = {
       console.log(empRole);
       console.log(empStartDt);
       console.log(empRate);
+      
+      var dateAdded = firebase.database.ServerValue.TIMESTAMP;
 
       var employeeDt = {
            name:empName,
            role:empRole,
            startdate:empStartDt,
-           rate:empRate
+           rate:empRate,
+           dateAdded: dateAdded
       }
 
       employeeDb.ref().push(employeeDt);
-    
 
       return false;
 
   })
 
+  employeeDb.ref().on("child_added",function(childSnapshot){
+      console.log(childSnapshot.val().name);
+      console.log(childSnapshot.val().role);
+      console.log(childSnapshot.val().startdate);
+      console.log(childSnapshot.val().rate);
+      console.log(childSnapshot.val().dateAdded);
 
-
+      $("#empRow").append("<tr><td>"+ childSnapshot.val().name + "</td><td>"+ childSnapshot.val().role +
+      "</td><td>"+ childSnapshot.val().startdate +"</td>")
+  })
