@@ -44,6 +44,14 @@ var config = {
       console.log(childSnapshot.val().rate);
       console.log(childSnapshot.val().dateAdded);
 
+     
+      var convertedStDt = moment(childSnapshot.val().startdate, "YYYY-DD-MM");
+      var monthsWorked = moment().diff(convertedStDt,"Months");
+      console.log("months worked",monthsWorked);
+
+      var totalBill = monthsWorked * childSnapshot.val().rate;
+
       $("#empRow").append("<tr><td>"+ childSnapshot.val().name + "</td><td>"+ childSnapshot.val().role +
-      "</td><td>"+ childSnapshot.val().startdate +"</td>")
+      "</td><td>"+ childSnapshot.val().startdate +"</td><td>"+ monthsWorked +
+      "</td><td>" + childSnapshot.val().rate + "</td><td>" + totalBill + "</td>" )
   })
